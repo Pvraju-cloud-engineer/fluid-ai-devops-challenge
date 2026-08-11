@@ -1,4 +1,3 @@
-# Fluid AI Kubernetes CI/CD challenge
 name: DevOps CI/CD Pipeline
 
 on:
@@ -71,5 +70,9 @@ jobs:
             kubectl -n fluid-demo rollout status deployment/backend
 
             echo "Deployment successful!"
-            kubectl -n fluid-ai get pods
-            kubectl -n fluid-ai get svc
+
+            echo "Pods:"
+            kubectl -n fluid-demo get pods
+
+            echo "Services:"
+            kubectl -n fluid-demo get svc
