@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: IMAGE_PLACEHOLDER
+          image: pvrajucloudops/fluid-ai-backend:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
