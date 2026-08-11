@@ -64,11 +64,11 @@ jobs:
             kubectl apply -f k8s/backend.yaml
 
             echo "Updating backend image..."
-            kubectl -n fluid-ai set image deployment/backend \
+            kubectl -n fluid-demo set image deployment/backend \
               backend=pvrajucloudops/fluid-ai-backend:${{ github.sha }}
 
             echo "Waiting for rollout..."
-            kubectl -n fluid-ai rollout status deployment/backend
+            kubectl -n fluid-demo rollout status deployment/backend
 
             echo "Deployment successful!"
             kubectl -n fluid-ai get pods
