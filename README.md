@@ -63,3 +63,23 @@ kubectl create secret generic postgres-secret   -n fluid-demo   --from-literal=P
        │
        ▼
     Application
+    
+GitHub repository:
+
+    fluid-ai-devops-challenge
+│
+├── .github/
+│   └── workflows/
+│       └── ci-cd.yml
+│
+├── app/
+│   ├── Dockerfile
+│   ├── package.json
+│   └── server.js
+│
+├── k8s/
+│   ├── namespace.yaml
+│   ├── backend.yaml
+│   └── postgres.yaml
+│
+└── README.md
