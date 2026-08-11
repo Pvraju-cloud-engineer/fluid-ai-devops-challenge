@@ -23,3 +23,43 @@ Create the Kubernetes database secret manually on the EC2 host. Do not commit th
 ```bash
 kubectl create secret generic postgres-secret   -n fluid-demo   --from-literal=POSTGRES_USER=appuser   --from-literal=POSTGRES_PASSWORD='CHANGE_ME'   --from-literal=POSTGRES_DB=appdb
 ```
+
+                    SOURCE CODE
+                        │
+                        ▼
+                     GitHub
+                        │
+                    git push
+                        │
+                        ▼
+                GitHub Actions
+                        │
+              ┌─────────┴─────────┐
+              ▼                   ▼
+        Docker Build         CI/CD Automation
+              │
+              ▼
+          Docker Hub
+              │
+         Immutable SHA
+              │
+              ▼
+          AWS EC2
+              │
+              ▼
+            K3s
+              │
+       ┌──────┴──────┐
+       ▼             ▼
+    Backend       PostgreSQL
+    2 replicas      StatefulSet
+       │             │
+       │             ▼
+       │            PVC
+       │
+       ▼
+    NodePort
+    :30080
+       │
+       ▼
+    Application
